@@ -1,0 +1,29 @@
+#product-image {
+    width: 300px;
+    height: 350px;
+}
+
+#view-card {
+    display: flex;
+    flex-direction: row;
+    border: none;
+    background-color: transparent;
+}
+
+#description {
+    display: flex;
+    justify-content: space-around;
+    text-align: start;
+    font-weight: normal;
+    font-size: 16px;
+    width: 70%;
+    margin-top: 16%;
+    margin-left: 15%;
+}
+
+#price-tag {
+    display: flex;
+    justify-content: flex-start;
+    font-size: large;
+    color: #1e31ff;
+}
