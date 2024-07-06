@@ -5,6 +5,7 @@ import {removeSelectedProduct, selectProduct} from "../../redux/actions/products
 import {useEffect} from "react";
 import {Card, Spinner} from "react-bootstrap";
 import "./../../Styling/ViewProduct.css";
+import { RiPriceTagLine } from "react-icons/ri";
 
 const ProductDetails = () => {
     const product = useSelector((state) => state.productState.product);
@@ -34,13 +35,13 @@ const ProductDetails = () => {
             product.length === 0 ?<><h2>Loading...</h2><Spinner animation={"border"}/></>:
                 <Card id={"view-card"}>
                     <div>
-                        <Card.Text id={'price-tag'}>
-                            ${price}
-                        </Card.Text>
                         <Card.Img src={image} id={"product-image"} />
-                        <Card.Title>{title}</Card.Title>
                     </div>
                     <Card.Body>
+                        <Card.Title id={"product-title"}>{title}</Card.Title>
+                        <Card.Text id={'price-tag'}>
+                            ${price}<RiPriceTagLine fontSize={40} />
+                        </Card.Text>
                         <Card.Text id={"description"}>
                             {description}
                         </Card.Text>

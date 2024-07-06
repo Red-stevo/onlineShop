@@ -1,6 +1,7 @@
 #product-image {
-    width: 300px;
-    height: 350px;
+    width: 350px;
+    height: 400px;
+    margin-right: 20px;
 }
 
 #view-card {
@@ -17,13 +18,18 @@
     font-weight: normal;
     font-size: 16px;
     width: 70%;
-    margin-top: 16%;
-    margin-left: 15%;
+    padding-top: 20px;
+    border-top: rgba(224, 217, 217, 0.83) solid 1px;
 }
 
 #price-tag {
     display: flex;
     justify-content: flex-start;
-    font-size: large;
-    color: #1e31ff;
+    font-size: x-large;
+    color: rgb(13, 164, 1);
+    height: 50px;
+}
+
+#product-title {
+    text-align: left;
 }
