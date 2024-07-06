@@ -1,5 +1,7 @@
-import {Container, Navbar} from "react-bootstrap";
+import {Container, Navbar, Nav} from "react-bootstrap";
 import {Outlet} from "react-router-dom";
+import "./../../Styling/Header.css";
+import {RiAddLargeFill} from "react-icons/ri";
 
 const HomeHeader = ()  => {
     return(
@@ -10,9 +12,11 @@ const HomeHeader = ()  => {
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
                     </Navbar.Collapse>
+                    <Nav.Item id={"add-product"}>
+                        <Nav.Link id={"add-icon"} eventKey="first"><RiAddLargeFill /></Nav.Link>
+                    </Nav.Item>
                 </Container>
             </Navbar>
-
             <Outlet />
         </>
         );
