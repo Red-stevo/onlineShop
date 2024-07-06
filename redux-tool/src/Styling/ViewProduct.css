@@ -2,6 +2,11 @@
     width: 350px;
     height: 400px;
     margin-right: 20px;
+    animation: z-wave 20s linear infinite;
+}
+
+#image-holder {
+
 }
 
 #view-card {
@@ -32,4 +37,27 @@
 
 #product-title {
     text-align: left;
+}
+
+
+@keyframes z-wave {
+    0% {
+        transform: rotateY(40deg);
+    }
+
+    25% {
+        transform: rotateY(0deg);
+    }
+
+    50% {
+        transform:rotateY(-40deg);
+    }
+
+    75% {
+        transform: rotateY(0deg);
+    }
+
+    100% {
+        transform: rotateY(40deg);
+    }
 }

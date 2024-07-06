@@ -34,7 +34,7 @@ const ProductDetails = () => {
         {
             product.length === 0 ?<><h2>Loading...</h2><Spinner animation={"border"}/></>:
                 <Card id={"view-card"}>
-                    <div>
+                    <div id={"image-holder"}>
                         <Card.Img src={image} id={"product-image"} />
                     </div>
                     <Card.Body>
