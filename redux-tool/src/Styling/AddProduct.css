@@ -1,0 +1,14 @@
+#product-text-input {
+    width: 60%;
+}
+
+#product-input-form {
+    display: flex;
+    margin-top: 30px;
+}
+
+#product-input-image {
+    width: 350px;
+    height: 400px;
+    margin-right: 20px;
+}
