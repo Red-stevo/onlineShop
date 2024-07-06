@@ -1,12 +1,14 @@
-import {Form} from "react-bootstrap";
+import {Button, Form} from "react-bootstrap";
 import "./../../Styling/AddProduct.css"
 
 const AddProduct = () => {
     return(<>
             <Form id={"product-input-form"}>
-                <Form.Group>
-                    <Form.Control id={"product-input-image"} type={"file"}  />
-                </Form.Group>
+                <div>
+                    <Form.Group>
+                        <Form.Control id={"product-input-image"} type={"file"}  />
+                    </Form.Group>
+                </div>
                 <div id={"product-text-input"}>
                   <Form.Group>
                       <Form.Label id={"title-label"} htmlFor={"title"}>Product Title.</Form.Label>
@@ -23,7 +25,7 @@ const AddProduct = () => {
                         <Form.Control as="textarea" rows={3} id={"product-description"} />
                     </Form.Group>
                 </div>
-
+                <Button id={"save-button"}>save</Button>
             </Form>
         </>);
 }
