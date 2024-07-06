@@ -14,7 +14,7 @@ const AddProduct = () => {
                   </Form.Group>
 
                     <Form.Group>
-                        <Form.Label id={"product-label"} htmlFor={"product-price"}>Product Price.</Form.Label>
+                        <Form.Label id={"price-label"} htmlFor={"product-price"}>Product Price.</Form.Label>
                         <Form.Control id={"product-price"} type={"text"} />
                     </Form.Group>
 

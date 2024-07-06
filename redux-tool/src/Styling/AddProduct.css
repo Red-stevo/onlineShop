@@ -1,14 +1,29 @@
 #product-text-input {
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
     width: 60%;
+    margin-left: 20px;
 }
 
 #product-input-form {
     display: flex;
     margin-top: 30px;
+    justify-content: center;
+
 }
 
 #product-input-image {
     width: 350px;
     height: 400px;
     margin-right: 20px;
+}
+
+#description-label, #title-label, #price-label {
+    text-align: left;
+    width: 95%;
+}
+
+#product-description, #title, #product-price {
+    width: 70%;
 }
