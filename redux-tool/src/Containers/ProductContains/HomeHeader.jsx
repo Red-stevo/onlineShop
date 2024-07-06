@@ -13,7 +13,7 @@ const HomeHeader = ()  => {
                     <Navbar.Collapse className="justify-content-end">
                     </Navbar.Collapse>
                     <Nav.Item id={"add-product"}>
-                        <Nav.Link id={"add-icon"} eventKey="first"><RiAddLargeFill /></Nav.Link>
+                        <Nav.Link href={"add"} id={"add-icon"} eventKey="first"><RiAddLargeFill /></Nav.Link>
                     </Nav.Item>
                 </Container>
             </Navbar>
