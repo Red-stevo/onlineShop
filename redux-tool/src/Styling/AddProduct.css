@@ -19,12 +19,18 @@
     margin-right: 20px;
 }
 
+#image-preview {
+    margin-top: 10px;
+    width: 350px;
+    height: 370px;
+}
+
 #description-label, #title-label, #price-label {
     text-align: left;
     width: 95%;
 }
 
-#product-description, #title, #product-price {
+#product-description, #product-title, #product-price {
     width: 70%;
 }
 

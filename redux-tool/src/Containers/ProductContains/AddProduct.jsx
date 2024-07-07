@@ -1,4 +1,4 @@
-import {Button, Form} from "react-bootstrap";
+import {Button, Form, Image} from "react-bootstrap";
 import "./../../Styling/AddProduct.css"
 import {useEffect, useState} from "react";
 
@@ -6,6 +6,7 @@ const AddProduct = () => {
     const [newProduct, setNewProduct] = useState({imageFile:"", productTitle:"", productPrice:"",
                                                     productDescription:""});
     const {imageFile, productTitle, productPrice, productDescription} = newProduct;
+    const [imagePreview, setImagPreview] = useState("");
 
     useEffect(() => {
         console.log(newProduct);
@@ -14,18 +15,21 @@ const AddProduct = () => {
     return(<>
             <Form id={"product-input-form"}>
                 <div>
-                    <Form.Group>
-                        <Form.Control id={"product-input-image"} type={"file"}
+                    <Form.Group id={"product-input-image"}>
+                        <Form.Control  type={"file"}
                         value={imageFile}
                         onChange={(e) =>{
+                            setImagPreview(URL.createObjectURL(e.target.files[0]));
                             setNewProduct({...newProduct,imageFile:e.target.value})}}/>
+                        {imagePreview ? <Image src={imagePreview} id={"image-preview"} />: null}
                     </Form.Group>
                 </div>
                 <div id={"product-text-input"}>
                   <Form.Group>
-                      <Form.Label id={"title-label"} htmlFor={"title"}>Product Title.</Form.Label>
-                      <Form.Control id={"title"} type={"text"} value={productTitle}
-                      onChange={(e) => {setNewProduct({...newProduct, productTitle:e.target.value})
+                      <Form.Label id={"title-label"} htmlFor={"product-title"}>Product Title.</Form.Label>
+                      <Form.Control id={"product-title"} type={"text"} value={productTitle} autoFocus={true}
+                      onChange={(e) => {
+                          setNewProduct({...newProduct, productTitle:e.target.value})
                       }}/>
                   </Form.Group>
 
@@ -38,7 +42,7 @@ const AddProduct = () => {
 
                     <Form.Group>
                         <Form.Label id={"description-label"} htmlFor={"product-description"}>Product Description.</Form.Label>
-                        <Form.Control as="textarea" rows={3} id={"product-description"}value={productDescription}
+                        <Form.Control as="textarea" rows={3} id={"product-description"} value={productDescription}
                         onChange={(e) => {setNewProduct({...newProduct,
                             productDescription:e.target.value})}}/>
                     </Form.Group>
