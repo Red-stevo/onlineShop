@@ -3,7 +3,7 @@ import "./../../Styling/AddProduct.css"
 import {useEffect, useState} from "react";
 
 const AddProduct = () => {
-    const [newProduct, setNewProduct] = useState({imageFile:"", productTitle:"", productPrice:"",
+    const [newProduct, setNewProduct] = useState({imageFile: {}, productTitle:"", productPrice:"",
                                                     productDescription:""});
     const {imageFile, productTitle, productPrice, productDescription} = newProduct;
     const [imagePreview, setImagPreview] = useState("");
@@ -20,7 +20,7 @@ const AddProduct = () => {
                         value={imageFile}
                         onChange={(e) =>{
                             setImagPreview(URL.createObjectURL(e.target.files[0]));
-                            setNewProduct({...newProduct,imageFile:e.target.value})}}/>
+                            setNewProduct({...newProduct,imageFile:e.target.files[0]})}}/>
                         {imagePreview ? <Image src={imagePreview} id={"image-preview"} />: null}
                     </Form.Group>
                 </div>
@@ -36,12 +36,14 @@ const AddProduct = () => {
                     <Form.Group>
                         <Form.Label id={"price-label"} htmlFor={"product-price"}>Product Price.</Form.Label>
                         <Form.Control id={"product-price"} type={"text"} value={productPrice}
-                      onChange={(e)=> {setNewProduct({...newProduct, productPrice:e.target.value})}
+                      onChange={(e)=>
+                      {setNewProduct({...newProduct, productPrice:e.target.value})}
                       }/>
                     </Form.Group>
 
                     <Form.Group>
-                        <Form.Label id={"description-label"} htmlFor={"product-description"}>Product Description.</Form.Label>
+                        <Form.Label id={"description-label"} htmlFor={"product-description"}>
+                            Product Description.</Form.Label>
                         <Form.Control as="textarea" rows={3} id={"product-description"} value={productDescription}
                         onChange={(e) => {setNewProduct({...newProduct,
                             productDescription:e.target.value})}}/>
