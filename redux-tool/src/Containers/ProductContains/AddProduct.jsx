@@ -17,17 +17,17 @@ const AddProduct = () => {
                 <div>
                     <Form.Group id={"product-input-image"}>
                         <Form.Control  type={"file"}
-                        value={imageFile}
-                        onChange={(e) =>{
-                            setImagPreview(URL.createObjectURL(e.target.files[0]));
-                            setNewProduct({...newProduct,imageFile:e.target.files[0]})}}/>
+                        onChange={(e) => {
+                            setNewProduct({...newProduct, imageFile: e.target.files[0]})
+                            setImagPreview(URL.createObjectURL(e.target.files[0]))
+                        }}/>
                         {imagePreview ? <Image src={imagePreview} id={"image-preview"} />: null}
                     </Form.Group>
                 </div>
                 <div id={"product-text-input"}>
                   <Form.Group>
                       <Form.Label id={"title-label"} htmlFor={"product-title"}>Product Title.</Form.Label>
-                      <Form.Control id={"product-title"} type={"text"} value={productTitle} autoFocus={true}
+                      <Form.Control id={"product-title"} type={"text"} value={productTitle}
                       onChange={(e) => {
                           setNewProduct({...newProduct, productTitle:e.target.value})
                       }}/>
