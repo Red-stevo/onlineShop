@@ -5,10 +5,10 @@ import {RiAddLargeFill} from "react-icons/ri";
 
 const HomeHeader = ()  => {
     return(
-        <>
+        <div className={"header"}>
             <Navbar className="bg-body-tertiary">
                 <Container>
-                    <Navbar.Brand href="/home">Shopping App</Navbar.Brand>
+                    <Navbar.Brand href="/home/shop">Shopping App</Navbar.Brand>
                     <Navbar.Toggle />
                     <Navbar.Collapse className="justify-content-end">
                     </Navbar.Collapse>
@@ -18,7 +18,7 @@ const HomeHeader = ()  => {
                 </Container>
             </Navbar>
             <Outlet />
-        </>
+        </div>
         );
     }
 export default HomeHeader;
