@@ -4,6 +4,7 @@ import {useState} from "react";
 import axios from "axios";
 import {useDispatch} from "react-redux";
 import {setProducts} from "../../redux/actions/productsActions.js";
+import decoImage from "./../../assets/onlineShopping4.jpg";
 
 const AddProduct = () => {
     const [newProduct, setNewProduct] = useState({imageFile: {}, productTitle:"", productPrice:"",
@@ -67,7 +68,10 @@ const AddProduct = () => {
                             productDescription:e.target.value})}}/>
                     </Form.Group>
                 </div>
-                <Button type={"submit"} id={"save-button"} >save</Button>
+                <div id={"deco-holder"}>
+                    <Image src={decoImage} id={"deco-image"}/>
+                    <Button type={"submit"} id={"save-button"} >save</Button>
+                </div>
             </Form>
         </>);
 }
