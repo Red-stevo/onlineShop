@@ -1,6 +1,7 @@
 import {Button, Form, Image} from "react-bootstrap";
 import "./../../Styling/AddProduct.css"
 import {useState} from "react";
+import axios from "axios";
 
 const AddProduct = () => {
     const [newProduct, setNewProduct] = useState({imageFile: {}, productTitle:"", productPrice:"",
@@ -8,13 +9,31 @@ const AddProduct = () => {
     const {productTitle, productPrice, productDescription} = newProduct;
     const [imagePreview, setImagPreview] = useState("");
 
+    const handleProductAddition = (event) => {
+        event.preventDefault();
+
+       const product =  {
+            title:newProduct.productTitle,
+                price: newProduct.productPrice,
+            description: newProduct.productDescription,
+            image: newProduct.imageFile,
+            category: 'electronic'
+        }
+
+        axios.post("https://fakestoreapi.com/products",product).then((response) => {
+            console.log(response.data);
+        }).catch((error) => {
+            console.log(error.response.data);
+        });
+    }
+
     return(<>
-            <Form id={"product-input-form"}>
+            <Form id={"product-input-form"} onSubmit={handleProductAddition}>
                 <div>
                     <Form.Group id={"product-input-image"}>
                         <Form.Control  type={"file"}
                         onChange={(e) => {
-                            setNewProduct({...newProduct, imageFile: e.target.files[0]})
+                            setNewProduct({...newProduct, imageFile: URL.createObjectURL(e.target.files[0])})
                             setImagPreview(URL.createObjectURL(e.target.files[0]))
                         }}/>
                         {imagePreview ? <Image src={imagePreview} id={"image-preview"} />: null}
@@ -45,7 +64,7 @@ const AddProduct = () => {
                             productDescription:e.target.value})}}/>
                     </Form.Group>
                 </div>
-                <Button id={"save-button"}>save</Button>
+                <Button type={"submit"} id={"save-button"}>save</Button>
             </Form>
         </>);
 }
