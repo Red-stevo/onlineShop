@@ -2,12 +2,15 @@ import {Button, Form, Image} from "react-bootstrap";
 import "./../../Styling/AddProduct.css"
 import {useState} from "react";
 import axios from "axios";
+import {useDispatch} from "react-redux";
+import {setProducts} from "../../redux/actions/productsActions.js";
 
 const AddProduct = () => {
     const [newProduct, setNewProduct] = useState({imageFile: {}, productTitle:"", productPrice:"",
                                                     productDescription:""});
     const {productTitle, productPrice, productDescription} = newProduct;
     const [imagePreview, setImagPreview] = useState("");
+    const dispatch = useDispatch();
 
     const handleProductAddition = (event) => {
         event.preventDefault();
@@ -21,7 +24,7 @@ const AddProduct = () => {
         }
 
         axios.post("https://fakestoreapi.com/products",product).then((response) => {
-            console.log(response.data);
+            dispatch(setProducts(response.data));
         }).catch((error) => {
             console.log(error.response.data);
         });
@@ -64,7 +67,7 @@ const AddProduct = () => {
                             productDescription:e.target.value})}}/>
                     </Form.Group>
                 </div>
-                <Button type={"submit"} id={"save-button"}>save</Button>
+                <Button type={"submit"} id={"save-button"} >save</Button>
             </Form>
         </>);
 }
