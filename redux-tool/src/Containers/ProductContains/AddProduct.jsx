@@ -1,16 +1,12 @@
 import {Button, Form, Image} from "react-bootstrap";
 import "./../../Styling/AddProduct.css"
-import {useEffect, useState} from "react";
+import {useState} from "react";
 
 const AddProduct = () => {
     const [newProduct, setNewProduct] = useState({imageFile: {}, productTitle:"", productPrice:"",
                                                     productDescription:""});
-    const {imageFile, productTitle, productPrice, productDescription} = newProduct;
+    const {productTitle, productPrice, productDescription} = newProduct;
     const [imagePreview, setImagPreview] = useState("");
-
-    useEffect(() => {
-        console.log(newProduct);
-    }, [newProduct]);
 
     return(<>
             <Form id={"product-input-form"}>
